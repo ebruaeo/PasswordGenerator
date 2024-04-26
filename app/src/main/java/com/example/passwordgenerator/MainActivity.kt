@@ -1,7 +1,11 @@
 package com.example.passwordgenerator
 
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import android.os.Bundle
 import android.widget.SeekBar
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.toColorInt
@@ -42,6 +46,20 @@ class MainActivity : AppCompatActivity() {
         binding.button.setOnClickListener {
             val newPassword = generateRandomPassword()
             binding.generatedPasswordText.text = newPassword
+            println(newPassword)
+        }
+
+        binding.buttonCopy.setOnClickListener {
+            if (!binding.generatedPasswordText.text.isNullOrBlank()) {
+                val text = binding.generatedPasswordText.text.toString()
+                val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+                val clip = ClipData.newPlainText("Copied Text", text)
+                clipboard.setPrimaryClip(clip)
+                Toast.makeText(this, "Copied!", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Generate Password First!", Toast.LENGTH_SHORT).show()
+
+            }
         }
 
     }

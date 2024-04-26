@@ -28,14 +28,16 @@
         android:layout_height="40dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:textAlignment="center"
-        android:gravity="center_vertical"
+        android:gravity="center"
+        android:autoSizeMaxTextSize="24sp"
+        android:autoSizeTextType="uniform"
+        android:paddingHorizontal="12dp"
         android:background="@drawable/rounded_corner"
         app:layout_constraintBottom_toTopOf="@+id/OptionBox1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/baslik"
+        app:layout_constraintTop_toBottomOf="@+id/title"
         app:layout_constraintVertical_bias="0.429" />
 
     <TextView
@@ -104,14 +106,9 @@
         android:id="@+id/OptionBox1"
         android:layout_width="0dp"
         android:layout_height="40dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        style="@style/option_box"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/rounded_corner"
-        android:gravity="center_vertical"
-        android:paddingStart="8dp"
         android:text="Include Numbers"
-        android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/OptionBox2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -130,13 +127,8 @@
         android:id="@+id/OptionBox2"
         android:layout_width="0dp"
         android:layout_height="40dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/rounded_corner"
-        android:gravity="center_vertical"
-        android:paddingStart="8dp"
+        style="@style/option_box"
         android:text="Include Uppercase Letters"
-        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -156,14 +148,9 @@
         android:id="@+id/OptionBox3"
         android:layout_width="0dp"
         android:layout_height="40dp"
-        android:layout_marginStart="8dp"
+        style="@style/option_box"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/rounded_corner"
-        android:gravity="center_vertical"
-        android:paddingStart="8dp"
         android:text="Include Symbols"
-        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -194,7 +181,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/baslik"
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
@@ -205,6 +192,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonCopy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#0000"
+        android:text="Copy"
+        android:textColor="@color/text_color"
+        app:layout_constraintEnd_toEndOf="@+id/generatedPasswordText"
+        app:layout_constraintTop_toBottomOf="@+id/generatedPasswordText" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
